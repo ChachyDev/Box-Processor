@@ -34,7 +34,7 @@ class ProcessorTests {
     }
 
     @Test
-    fun `Test Annotation Processor to Forge with FMLINIT`() {
+    fun `Test Annotation Processor to Forge with ModEventHandler`() {
         val processor = BoxProcessors.createAnnotationProcessorInstance()
         val annotation = processor.processToForge("InvokeEvent", FunctionType.ModEventHandler)
         assert(annotation == "Mod.EventHandler")
