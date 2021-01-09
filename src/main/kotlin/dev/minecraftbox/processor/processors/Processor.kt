@@ -8,7 +8,7 @@ import java.io.InputStream
 val reader = csvReader()
 
 interface Processor {
-    fun processToForge(boxType: String, functionType: FunctionType?): String?
+    fun processToOtherModloader(boxType: String, functionType: FunctionType?): String?
 
     fun processToBox(forgeType: String): String?
 

@@ -2,14 +2,15 @@ package dev.minecraftbox.processor.processors.annotations
 
 import dev.minecraftbox.processor.processors.Processor
 import dev.minecraftbox.processor.utils.second
+import java.io.File
 
 
-class AnnotationProcessor : Processor {
+class AnnotationProcessor(mappings: String) : Processor {
     private val annotations = this::class.java
-            .getResourceAsStream("/annotations.csv")
+            .getResourceAsStream(mappings)
             .processFile()
 
-    override fun processToForge(boxType: String, functionType: FunctionType?) : String? {
+    override fun processToOtherModloader(boxType: String, functionType: FunctionType?) : String? {
         val annotations = annotations.filter { it.second == boxType }
 
         if (annotations.size > 1) {

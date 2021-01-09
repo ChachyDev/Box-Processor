@@ -9,6 +9,7 @@ class ProcessorTests {
     fun `Test Annotation Processor to Box`() {
         val processor = BoxProcessors.createAnnotationProcessorInstance()
         val annotation = processor.processToBox("Mod.EventHandler")
+        println(annotation)
         assert(annotation == "InvokeEvent")
     }
 
@@ -16,27 +17,30 @@ class ProcessorTests {
     fun `Test Event Processor To Box`() {
         val processor = BoxProcessors.createEventProcessorInstance()
         val event = processor.processToBox("FMLInitializationEvent")
+        println(event)
         assert(event == "InitializationEvent")
     }
 
     @Test
     fun `Test Annotation Processor to Forge`() {
         val processor = BoxProcessors.createAnnotationProcessorInstance()
-        val annotation = processor.processToForge("InvokeEvent", null)
+        val annotation = processor.processToOtherModloader("InvokeEvent", null)
         assert(annotation == "SubscribeEvent")
     }
 
     @Test
     fun `Test Event Processor To Forge`() {
         val processor = BoxProcessors.createEventProcessorInstance()
-        val event = processor.processToForge("InitializationEvent", null)
+        val event = processor.processToOtherModloader("InitializationEvent", null)
+        println(event)
         assert(event == "FMLInitializationEvent")
     }
 
     @Test
     fun `Test Annotation Processor to Forge with ModEventHandler`() {
         val processor = BoxProcessors.createAnnotationProcessorInstance()
-        val annotation = processor.processToForge("InvokeEvent", FunctionType.ModEventHandler)
+        val annotation = processor.processToOtherModloader("InvokeEvent", FunctionType.ModEventHandler)
+        println(annotation)
         assert(annotation == "Mod.EventHandler")
     }
 }

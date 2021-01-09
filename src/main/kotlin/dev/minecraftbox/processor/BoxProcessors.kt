@@ -4,7 +4,7 @@ import dev.minecraftbox.processor.processors.annotations.AnnotationProcessor
 import dev.minecraftbox.processor.processors.events.EventProcessor
 
 object BoxProcessors {
-    fun createAnnotationProcessorInstance() = AnnotationProcessor()
+    fun createAnnotationProcessorInstance(mappings: String = "forge-annotations.csv") = AnnotationProcessor(mappings)
 
-    fun createEventProcessorInstance() = EventProcessor()
+    fun createEventProcessorInstance(mappings: String = "forge-events.csv") = EventProcessor(mappings)
 }
