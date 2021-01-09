@@ -25,6 +25,7 @@ class ProcessorTests {
     fun `Test Annotation Processor to Forge`() {
         val processor = BoxProcessors.createAnnotationProcessorInstance()
         val annotation = processor.processToOtherModloader("InvokeEvent", null)
+        println(annotation)
         assert(annotation == "SubscribeEvent")
     }
 
