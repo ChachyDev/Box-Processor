@@ -6,7 +6,7 @@ import dev.minecraftbox.processor.utils.second
 
 class AnnotationProcessor : Processor {
     private val annotations = this::class.java
-            .getResourceAsStream("/annotations.bmap")
+            .getResourceAsStream("/annotations.csv")
             .processFile()
 
     override fun processToForge(boxType: String, functionType: FunctionType?) : String? {

@@ -1,2 +1,0 @@
-SubscribeEvent InvokeEvent // Preferred to Mod.EventHandler
-Mod.EventHandler InvokeEvent

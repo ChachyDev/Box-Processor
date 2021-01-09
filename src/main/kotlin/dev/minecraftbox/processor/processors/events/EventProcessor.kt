@@ -6,7 +6,7 @@ import dev.minecraftbox.processor.utils.second
 
 class EventProcessor : Processor {
     private val events = this::class.java
-            .getResourceAsStream("/events.bmap")
+            .getResourceAsStream("/events.csv")
             .processFile()
 
     override fun processToForge(boxType: String, functionType: FunctionType?) =  events.find { it.second == boxType }?.first
